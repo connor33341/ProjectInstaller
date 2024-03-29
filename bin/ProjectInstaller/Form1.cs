@@ -4,6 +4,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Net;
 using System.Runtime.Serialization;
+using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace ProjectInstaller
@@ -16,37 +17,85 @@ namespace ProjectInstaller
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            string[] parts = Path.GetFileNameWithoutExtension(Application.ExecutablePath).Split('-');
+            
+        }
+        private bool IsAdministrator()
+        {
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
+        private void RunAsAdmin(string fileName)
+        {
+            ProcessStartInfo processInfo = new ProcessStartInfo
+            {
+                FileName = fileName,
+                UseShellExecute = true,
+                Verb = "runas"
+            };
+
+            try
+            {
+                Process.Start(processInfo);
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
         }
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            string directory = "dir";
-            string mainExePath = Path.Combine(directory, "main.exe");
-            string repoPath = Path.Combine(directory, "repo");
-            string exeDirectory = Path.Combine(directory, "exe");
-
-            // Check if main.exe exists
-            if (!File.Exists(mainExePath))
+            string directory = "C:\\Program Files\\ProjectInstaller\\v1-5";
+            string mainExePath = Path.Combine(directory, "installer.exe");
+            string repoPath = Path.Combine(directory, "MainRepo");
+            // Create the directory if it doesn't exist
+            string[] parts = Path.GetFileNameWithoutExtension(Application.ExecutablePath).Split('-');
+            bool Admin = IsAdministrator();
+            if (parts.Length == 2)
             {
-                // Create the directory if it doesn't exist
-                if (!Directory.Exists(directory))
-                {
-                    Directory.CreateDirectory(directory);
-                }
-
-                // Download and extract the repository
-                DownloadAndExtractRepository("user", "repo", repoPath);
-
-                // Move main.exe to the exe directory
-                MoveMainExe(repoPath, exeDirectory);
+                label6.Text = "RepoOwner: " + parts[0];
+                label7.Text = "RepoName: " + parts[1];
             }
             else
             {
-                MessageBox.Show("main.exe already exists.");
+                MessageBox.Show("Invalid installer name; name must be user-repo.exe and the repo must be a public github.com repo");
+                label5.Text = "Error: Invalid Installer";
+                return;
+            }
+            if (!Directory.Exists(directory))
+            {
+                label8.Text = "Creating Directory";
+                if (Admin)
+                {
+                    Directory.CreateDirectory(directory);
+                } else
+                {
+                    RunAsAdmin(Application.ExecutablePath);
+                }
+            }
+            // Check if main.exe exists
+            if ((!File.Exists(mainExePath)))
+            {
+                if (richTextBox1.Text == "")
+                {
+                    richTextBox1.Text = $"--owner {parts[0]} --repo {parts[1]} --path {textBox2.Text} --build-file config.json";
+                } else
+                {
+                    richTextBox1.Text = $" --owner {parts[0]} --repo {parts[1]} --path {textBox2.Text} --build-file config.json";
+                }
+                // Download and extract the repository
+                DownloadAndExtractRepository("connor33341","projectinstaller", repoPath);
+
+                // Move main.exe to the exe directory
+                MoveMainExe(repoPath, mainExePath);
+            }
+            else
+            {
+               
             }
 
-            // Run main.exe with --msg hi flags
-            RunMainExeWithFlags(exeDirectory);
+            RunMainExeWithFlags(directory);
         }
 
         private void DownloadAndExtractRepository(string user, string repo, string destinationPath)
@@ -55,8 +104,16 @@ namespace ProjectInstaller
 
             using (var client = new WebClient())
             {
-                MessageBox.Show($"Downloading {user}/{repo}...");
-                client.DownloadFile(repoUrl, "repo.zip");
+                //MessageBox.Show($"Downloading {user}/{repo}...");
+                try
+                {
+                    client.DownloadFile(repoUrl, "repo.zip");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to find {user}/{repo}");
+                    return;
+                }
             }
 
             MessageBox.Show("Extracting repository...");
@@ -66,33 +123,31 @@ namespace ProjectInstaller
 
         private void MoveMainExe(string sourceDirectory, string destinationDirectory)
         {
-            string[] exeFiles = Directory.GetFiles(sourceDirectory, "main.exe", SearchOption.AllDirectories);
+            string[] exeFiles = Directory.GetFiles(sourceDirectory, "installer.exe", SearchOption.AllDirectories);
 
             if (exeFiles.Length > 0)
             {
-                MessageBox.Show("Moving main.exe to exe directory...");
-                Directory.CreateDirectory(destinationDirectory);
-                File.Move(exeFiles[0], Path.Combine(destinationDirectory, "main.exe"));
-                MessageBox.Show("main.exe moved successfully.");
+                //Directory.CreateDirectory(destinationDirectory);
+                File.Move(exeFiles[0], Path.Combine(destinationDirectory, "installer.exe"));
             }
             else
             {
-                MessageBox.Show("main.exe not found in the repository.");
+                MessageBox.Show("Error finding installer.exe");
             }
         }
 
         private void RunMainExeWithFlags(string exeDirectory)
         {
-            string exePath = Path.Combine(exeDirectory, "main.exe");
+            string exePath = Path.Combine(exeDirectory, "installer.exe");
 
             if (File.Exists(exePath))
             {
-                MessageBox.Show("Running main.exe with --msg hi flags...");
-                Process.Start(exePath, "--msg hi");
+                //MessageBox.Show("Running main.exe with --msg hi flags...");
+                Process.Start(exePath, richTextBox1.Text);
             }
             else
             {
-                MessageBox.Show("main.exe not found in the exe directory.");
+               // MessageBox.Show("main.exe not found in the exe directory.");
             }
         }
 
@@ -134,6 +189,17 @@ namespace ProjectInstaller
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form1_Load(sender, e);
+            btnDownload_Click(sender, e);
         }
     }
 }

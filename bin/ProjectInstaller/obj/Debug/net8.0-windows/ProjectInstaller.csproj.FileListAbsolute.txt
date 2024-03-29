@@ -12,3 +12,7 @@ D:\GitHub\ProjectInstaller\bin\ProjectInstaller\obj\Debug\net8.0-windows\refint\
 D:\GitHub\ProjectInstaller\bin\ProjectInstaller\obj\Debug\net8.0-windows\ProjectInstaller.pdb
 D:\GitHub\ProjectInstaller\bin\ProjectInstaller\obj\Debug\net8.0-windows\ProjectInstaller.genruntimeconfig.cache
 D:\GitHub\ProjectInstaller\bin\ProjectInstaller\obj\Debug\net8.0-windows\ref\ProjectInstaller.dll
+D:\GitHub\ProjectInstaller\bin\ProjectInstaller\obj\Debug\net8.0-windows\ProjectInstaller.Form1.resources
+D:\GitHub\ProjectInstaller\bin\ProjectInstaller\obj\Debug\net8.0-windows\ProjectInstaller.Properties.Resources.resources
+D:\GitHub\ProjectInstaller\bin\ProjectInstaller\obj\Debug\net8.0-windows\ProjectInstaller.csproj.GenerateResource.cache
+D:\GitHub\ProjectInstaller\bin\ProjectInstaller\obj\Debug\net8.0-windows\ProjectInstaller.sourcelink.json

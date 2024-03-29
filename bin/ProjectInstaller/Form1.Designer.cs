@@ -34,20 +34,28 @@
             label1 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            button3 = new Button();
+            button2 = new Button();
+            textBox2 = new TextBox();
+            label3 = new Label();
             label2 = new Label();
             button1 = new Button();
             textBox1 = new TextBox();
             tabPage2 = new TabPage();
-            label3 = new Label();
+            label4 = new Label();
+            richTextBox1 = new RichTextBox();
             folderBrowserDialog1 = new FolderBrowserDialog();
-            button2 = new Button();
-            textBox2 = new TextBox();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -118,6 +126,11 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(label8);
+            tabPage1.Controls.Add(label7);
+            tabPage1.Controls.Add(label6);
+            tabPage1.Controls.Add(label5);
+            tabPage1.Controls.Add(button3);
             tabPage1.Controls.Add(button2);
             tabPage1.Controls.Add(textBox2);
             tabPage1.Controls.Add(label3);
@@ -131,6 +144,74 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "General";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(21, 212);
+            label7.Name = "label7";
+            label7.Size = new Size(95, 21);
+            label7.TabIndex = 9;
+            label7.Text = "RepoName: ";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(21, 191);
+            label6.Name = "label6";
+            label6.Size = new Size(100, 21);
+            label6.TabIndex = 8;
+            label6.Text = "RepoOwner: ";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(21, 170);
+            label5.Name = "label5";
+            label5.Size = new Size(55, 21);
+            label5.TabIndex = 7;
+            label5.Text = "Errors:";
+            // 
+            // button3
+            // 
+            button3.Location = new Point(436, 390);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 6;
+            button3.Text = "Install";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(425, 128);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 5;
+            button2.Text = "Select";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(21, 128);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(383, 23);
+            textBox2.TabIndex = 4;
+            textBox2.Text = "C:\\Program Files\\{REPO NAME}\\";
+            textBox2.TextChanged += textBox2_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(106, 95);
+            label3.Name = "label3";
+            label3.Size = new Size(205, 30);
+            label3.TabIndex = 3;
+            label3.Text = "Installation Directory";
             // 
             // label2
             // 
@@ -163,6 +244,8 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label4);
+            tabPage2.Controls.Add(richTextBox1);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -171,33 +254,33 @@
             tabPage2.Text = "Advanced";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // label4
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(106, 95);
-            label3.Name = "label3";
-            label3.Size = new Size(205, 30);
-            label3.TabIndex = 3;
-            label3.Text = "Installation Directory";
+            label4.AutoSize = true;
+            label4.Location = new Point(203, 29);
+            label4.Name = "label4";
+            label4.Size = new Size(80, 15);
+            label4.TabIndex = 1;
+            label4.Text = "Program Args";
+            label4.Click += label4_Click;
             // 
-            // button2
+            // richTextBox1
             // 
-            button2.Location = new Point(425, 128);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 5;
-            button2.Text = "Select";
-            button2.UseVisualStyleBackColor = true;
+            richTextBox1.Location = new Point(17, 56);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(480, 344);
+            richTextBox1.TabIndex = 0;
+            richTextBox1.Text = "";
             // 
-            // textBox2
+            // label8
             // 
-            textBox2.Location = new Point(21, 128);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(383, 23);
-            textBox2.TabIndex = 4;
-            textBox2.Text = "C:\\Program Files\\{REPO NAME}\\";
-            textBox2.TextChanged += textBox2_TextChanged;
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(21, 233);
+            label8.Name = "label8";
+            label8.Size = new Size(59, 21);
+            label8.TabIndex = 10;
+            label8.Text = "Status: ";
             // 
             // Form1
             // 
@@ -216,6 +299,8 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -235,5 +320,12 @@
         private TextBox textBox2;
         private Label label3;
         private FolderBrowserDialog folderBrowserDialog1;
+        private Button button3;
+        private RichTextBox richTextBox1;
+        private Label label4;
+        private Label label5;
+        private Label label7;
+        private Label label6;
+        private Label label8;
     }
 }
