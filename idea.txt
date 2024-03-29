@@ -1,0 +1,6 @@
+owner-repo.exe
+sends github get request
+looks for pi support
+upzips pi support files
+locates projectinstaller.config
+builds via config
