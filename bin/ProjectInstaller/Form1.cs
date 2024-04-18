@@ -79,10 +79,10 @@ namespace ProjectInstaller
             {
                 if (richTextBox1.Text == "")
                 {
-                    richTextBox1.Text = $"--owner {parts[0]} --repo {parts[1]} --path {textBox2.Text} --build-file config.json";
+                    richTextBox1.Text = $"--owner {parts[0]} --repo {parts[1]} --path {textBox2.Text} --buildfile config.json";
                 } else
                 {
-                    richTextBox1.Text = $" --owner {parts[0]} --repo {parts[1]} --path {textBox2.Text} --build-file config.json";
+                    richTextBox1.Text = $" --owner {parts[0]} --repo {parts[1]} --path {textBox2.Text} --buildfile config.json";
                 }
                 // Download and extract the repository
                 DownloadAndExtractRepository("connor33341","projectinstaller", repoPath);
@@ -147,7 +147,7 @@ namespace ProjectInstaller
             }
             else
             {
-               // MessageBox.Show("main.exe not found in the exe directory.");
+                MessageBox.Show($"Failed to find installer.exe in {exepath}");
             }
         }
 

@@ -1,4 +1,5 @@
 import http.client
+import argparse
 import zipfile
 import os
 import uuid
@@ -10,7 +11,13 @@ CACHEDIR = f"{PROGRAMDIR}\\cache\\"
 LOGDIR = f"{PROGRAMDIR}\\logs\\"
 SESSIONID = uuid.uuid4()
 FILENAME = os.path.basename(__file__)
-
+Parser = argparse.ArgumentParser()
+Parser.add_argument("--owner", type=str)
+Parser.add_argument("--repo", type=str)
+Parser.add_argument("--path", type=str)
+Parser.add_argument("--buildfile", type=str)
+Parser.add_argument("--branch", type=str)
+Parser.add_argument("--force-url", type=str)
 class JsonReader:
     def __init__(self,Logger,File):
         self.File = File
@@ -32,6 +39,8 @@ class JsonReader:
 class Main:
     def __init__(self,Logger):
         self.Logger = Logger
+        self.Args = Parser.parse_args()
+        self.BuildFileReader = JsonReader(self.Logger,self.Args.buildfile)
 
 if __name__ == "__main__":
     logging.basicConfig(filename=f"{LOGDIR}{SESSIONID}.log",level=logging.DEBUG,format='[%(asctime)s|%(levelname)s]: %(message)s')
