@@ -1,10 +1,5 @@
-*.bat
-*.dll
-*.pdb
 *.cache
 singlefilehost.exe
 apphost.exe
 *.vsidx
-*.bin
 *.editorconfig
-bin
