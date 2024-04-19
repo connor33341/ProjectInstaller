@@ -14,6 +14,7 @@ if not exist "%source_dir%\main.exe" (
 
 REM Move the file
 move "%source_dir%\main.exe" "%target_dir%\main.exe"
+ren  "%target_dir%\main.exe" "%target_dir%\installer.exe"
 move "%build_dir%" "%pack_dir%"
 move "%build_dir%\main.spec" "%pack_dir%\main.spec"
 echo Updated
