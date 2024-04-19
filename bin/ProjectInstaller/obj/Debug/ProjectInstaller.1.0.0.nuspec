@@ -5,9 +5,11 @@
     <version>1.0.0</version>
     <authors>ProjectInstaller</authors>
     <description>Package Description</description>
-    <repository type="git" commit="eadab5099276f275a8179429b6af3f10e3d393b3" />
+    <repository type="git" commit="9a69e6485f13b79b0e7f5bd5337e569d4e47c641" />
     <dependencies>
-      <group targetFramework="net8.0-windows7.0" />
+      <group targetFramework="net8.0-windows7.0">
+        <dependency id="ilmerge" version="3.0.41" exclude="Build,Analyzers" />
+      </group>
     </dependencies>
     <frameworkReferences>
       <group targetFramework="net8.0-windows7.0">

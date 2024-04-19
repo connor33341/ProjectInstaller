@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjectInstaller")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eadab5099276f275a8179429b6af3f10e3d393b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a69e6485f13b79b0e7f5bd5337e569d4e47c641")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjectInstaller")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjectInstaller")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

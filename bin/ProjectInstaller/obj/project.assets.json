@@ -7,6 +7,12 @@
         "build": {
           "build/ILMerge.props": {}
         }
+      },
+      "ILRepack/2.0.30": {
+        "type": "package",
+        "build": {
+          "build/ILRepack.props": {}
+        }
       }
     }
   },
@@ -26,10 +32,28 @@
         "tools/net452/ILMerge.exe",
         "tools/net452/System.Compiler.dll"
       ]
+    },
+    "ILRepack/2.0.30": {
+      "sha512": "QanDNA1Y+Qd6uH9OzgRl9vRZrgd8ee2MO93fO8B35Mo5mK4Q8WaZsgHUPq/umLTFimI3nNO6wwbPgjBB6sBwiQ==",
+      "type": "package",
+      "path": "ilrepack/2.0.30",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ILRepack.png",
+        "README.md",
+        "build/ILRepack.props",
+        "ilrepack.2.0.30.nupkg.sha512",
+        "ilrepack.nuspec",
+        "tools/ILRepack.exe",
+        "tools/ILRepack.runtimeconfig.json"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "ILRepack >= 2.0.30",
       "ilmerge >= 3.0.41"
     ]
   },
@@ -78,6 +102,12 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "ILRepack": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.0.30, )"
+          },
           "ilmerge": {
             "target": "Package",
             "version": "[3.0.41, )"

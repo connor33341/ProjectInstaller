@@ -10,6 +10,10 @@
 
   <ItemGroup>
     <PackageReference Include="ilmerge" Version="3.0.41" />
+    <PackageReference Include="ILRepack" Version="2.0.30">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -26,13 +30,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="ILMerge" Version="3.0.29" />
-  </ItemGroup>
-
   <Target Name="ILMerge">
     <!-- the ILMergePath property points to the location of ILMerge.exe console application -->
-    <Exec Command="$(ILMergeConsolePath) \bin\Release\net8.0-windows\ProjectInstaller.exe  /out:ProjectInstallerStandAlone.exe \bin\Release\net8.0-windows\ProjectInstaller.dlll" />
+    <Exec Command="$(ILMergeConsolePath) \bin\Release\net8.0-windows\ProjectInstaller.exe  /out:ProjectInstallerStandAlone.exe \bin\Release\net8.0-windows\ProjectInstaller.dll" />
   </Target>
 
 </Project>
