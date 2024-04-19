@@ -1,0 +1,5 @@
+D:\GitHub\ProjectInstaller\bin\ProjectInstaller\bin\Release\net8.0-windows\publish\ProjectInstaller.exe
+D:\GitHub\ProjectInstaller\bin\ProjectInstaller\bin\Release\net8.0-windows\publish\ProjectInstaller.dll
+D:\GitHub\ProjectInstaller\bin\ProjectInstaller\bin\Release\net8.0-windows\publish\ProjectInstaller.deps.json
+D:\GitHub\ProjectInstaller\bin\ProjectInstaller\bin\Release\net8.0-windows\publish\ProjectInstaller.runtimeconfig.json
+D:\GitHub\ProjectInstaller\bin\ProjectInstaller\bin\Release\net8.0-windows\publish\ProjectInstaller.pdb

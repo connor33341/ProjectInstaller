@@ -34,6 +34,7 @@
             label1 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -48,7 +49,6 @@
             label4 = new Label();
             richTextBox1 = new RichTextBox();
             folderBrowserDialog1 = new FolderBrowserDialog();
-            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -144,6 +144,16 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "General";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(21, 233);
+            label8.Name = "label8";
+            label8.Size = new Size(59, 21);
+            label8.TabIndex = 10;
+            label8.Text = "Status: ";
             // 
             // label7
             // 
@@ -272,16 +282,6 @@
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(21, 233);
-            label8.Name = "label8";
-            label8.Size = new Size(59, 21);
-            label8.TabIndex = 10;
-            label8.Text = "Status: ";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -290,7 +290,8 @@
             ClientSize = new Size(800, 450);
             Controls.Add(splitContainer1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Project Installer";
+            Load += Form1_Load_1;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);

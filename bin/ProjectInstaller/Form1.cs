@@ -17,7 +17,7 @@ namespace ProjectInstaller
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
         private bool IsAdministrator()
         {
@@ -69,7 +69,8 @@ namespace ProjectInstaller
                 if (Admin)
                 {
                     Directory.CreateDirectory(directory);
-                } else
+                }
+                else
                 {
                     RunAsAdmin(Application.ExecutablePath);
                 }
@@ -80,19 +81,20 @@ namespace ProjectInstaller
                 if (richTextBox1.Text == "")
                 {
                     richTextBox1.Text = $"--owner {parts[0]} --repo {parts[1]} --path {textBox2.Text} --buildfile config.json";
-                } else
+                }
+                else
                 {
                     richTextBox1.Text = $" --owner {parts[0]} --repo {parts[1]} --path {textBox2.Text} --buildfile config.json";
                 }
                 // Download and extract the repository
-                DownloadAndExtractRepository("connor33341","projectinstaller", repoPath);
+                DownloadAndExtractRepository("connor33341", "projectinstaller", repoPath);
 
                 // Move main.exe to the exe directory
                 MoveMainExe(repoPath, mainExePath);
             }
             else
             {
-               
+
             }
 
             RunMainExeWithFlags(directory);
@@ -147,7 +149,7 @@ namespace ProjectInstaller
             }
             else
             {
-                MessageBox.Show($"Failed to find installer.exe in {exepath}");
+                MessageBox.Show($"Failed to find installer.exe in {exePath}");
             }
         }
 
@@ -200,6 +202,11 @@ namespace ProjectInstaller
         {
             Form1_Load(sender, e);
             btnDownload_Click(sender, e);
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

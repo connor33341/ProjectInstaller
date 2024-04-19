@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xlhT7SMGB2tA/TYoamIQHdZuAWZL8Ixwi7yaiszplXFcYoWffBJe9y9s42sKKMXagP8ZQsswH1UGI8Lj61D8HA==",
+  "dgSpecHash": "0qDXXMK1Xh0yXjq4mjVRNbpQ4MUmaEuUYt392fkKZsLjNBcVnbb+jY3fcakYN41qb+xC0SX8htbRBf3Kc40mFw==",
   "success": true,
   "projectFilePath": "D:\\GitHub\\ProjectInstaller\\bin\\ProjectInstaller\\ProjectInstaller.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Connor\\.nuget\\packages\\ilmerge\\3.0.41\\ilmerge.3.0.41.nupkg.sha512"
+  ],
   "logs": []
 }
