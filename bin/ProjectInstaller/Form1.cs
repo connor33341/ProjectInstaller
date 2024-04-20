@@ -119,6 +119,10 @@ namespace ProjectInstaller
 
         private void DownloadAndExtractRepository(string user, string repo, string destinationPath)
         {
+            if (Directory.Exists(destinationPath))
+            {
+                Directory.Delete(destinationPath, true);
+            }
             string repoUrl = $"https://github.com/{user}/{repo}/archive/main.zip";
 
             using (var client = new WebClient())
@@ -136,14 +140,7 @@ namespace ProjectInstaller
             }
 
             MessageBox.Show("Extracting repository...");
-            if (Directory.Exists(destinationPath))
-            {
-                MessageBox.Show("Repo already installed");
-            }
-            else
-            {
-                ZipFile.ExtractToDirectory("repo.zip", destinationPath);
-            }
+            ZipFile.ExtractToDirectory("repo.zip", destinationPath);
             File.Delete("repo.zip");
         }
 

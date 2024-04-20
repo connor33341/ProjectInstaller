@@ -1,0 +1,9 @@
+{
+    "name": "ProjectInstaller",
+    "owner": "connor33341",
+    "desc": "Tool used to install projects",
+    "run": "@main.bat",
+    "lisence": "@LISENCE",
+    "force-agree": true,
+    "agree-server": "https://projectinstaller.glitch.me/argeeserver/"
+}
