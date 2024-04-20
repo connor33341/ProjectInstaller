@@ -97,7 +97,7 @@
             linkLabel1.Size = new Size(31, 15);
             linkLabel1.TabIndex = 1;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "v.1.5";
+            linkLabel1.Text = "v.1.6";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // label1
@@ -242,6 +242,7 @@
             button1.TabIndex = 1;
             button1.Text = "Verify";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // textBox1
             // 

@@ -44,18 +44,6 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "dependencies": {
-            "ILRepack": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.30, )"
-            },
-            "ilmerge": {
-              "target": "Package",
-              "version": "[3.0.41, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

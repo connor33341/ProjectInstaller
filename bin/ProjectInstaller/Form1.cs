@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -44,18 +45,34 @@ namespace ProjectInstaller
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+        string[] parts = ["", ""];
         private void btnDownload_Click(object sender, EventArgs e)
         {
             string directory = "C:\\Program Files\\ProjectInstaller\\v1-5";
             string mainExePath = Path.Combine(directory, "installer.exe");
             string repoPath = Path.Combine(directory, "MainRepo");
             // Create the directory if it doesn't exist
-            string[] parts = Path.GetFileNameWithoutExtension(Application.ExecutablePath).Split('-');
+            string[] parts2 = Path.GetFileNameWithoutExtension(Application.ExecutablePath).Split('-');
+            if (parts2.Length == 2 && parts.Length != 2)
+            {
+                parts = parts2;
+            }
             bool Admin = IsAdministrator();
+            bool Testing = true;
+            if (Testing)
+            {
+                parts[0] = "connor33341";
+                parts[1] = "projectinstaller";
+            }
+            if (!Admin)
+            {
+                RunAsAdmin(Application.ExecutablePath);
+            }
             if (parts.Length == 2)
             {
                 label6.Text = "RepoOwner: " + parts[0];
                 label7.Text = "RepoName: " + parts[1];
+                textBox2.Text = $"C:\\Program Files\\{parts[0]}-{parts[1]}\\";
             }
             else
             {
@@ -119,7 +136,14 @@ namespace ProjectInstaller
             }
 
             MessageBox.Show("Extracting repository...");
-            ZipFile.ExtractToDirectory("repo.zip", destinationPath);
+            if (Directory.Exists(destinationPath))
+            {
+                MessageBox.Show("Repo already installed");
+            }
+            else
+            {
+                ZipFile.ExtractToDirectory("repo.zip", destinationPath);
+            }
             File.Delete("repo.zip");
         }
 
@@ -207,6 +231,30 @@ namespace ProjectInstaller
         private void Form1_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string[] reposplit = textBox1.Text.Split('/');
+            string user = reposplit[0];
+            string repo = reposplit[1];
+            string repoUrl = $"https://github.com/{user}/{repo}/archive/main.zip";
+            parts[0] = user;
+            parts[1] = repo;
+            using (var client = new WebClient())
+            {
+                //MessageBox.Show($"Downloading {user}/{repo}...");
+                try
+                {
+                    client.OpenRead(repoUrl);
+                    MessageBox.Show("Repo Validated");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to find {user}/{repo}");
+                    return;
+                }
+            }
         }
     }
 }

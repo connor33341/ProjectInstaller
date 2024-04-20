@@ -2,18 +2,6 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
-      "ILMerge/3.0.41": {
-        "type": "package",
-        "build": {
-          "build/ILMerge.props": {}
-        }
-      },
-      "ILRepack/2.0.30": {
-        "type": "package",
-        "build": {
-          "build/ILRepack.props": {}
-        }
-      },
       "Microsoft.NET.ILLink.Tasks/8.0.1": {
         "type": "package",
         "build": {
@@ -22,18 +10,6 @@
       }
     },
     "net8.0-windows7.0/win-x86": {
-      "ILMerge/3.0.41": {
-        "type": "package",
-        "build": {
-          "build/ILMerge.props": {}
-        }
-      },
-      "ILRepack/2.0.30": {
-        "type": "package",
-        "build": {
-          "build/ILRepack.props": {}
-        }
-      },
       "Microsoft.NET.ILLink.Tasks/8.0.1": {
         "type": "package",
         "build": {
@@ -43,39 +19,6 @@
     }
   },
   "libraries": {
-    "ILMerge/3.0.41": {
-      "sha512": "u9n45xs40bSGoNFcmMYJkh3zkGYKR4BqzQaX2uHc2Ay4drdiQOTeo/1ECps3ttDXOu4Q6qbTnsIbQWb/06ShqA==",
-      "type": "package",
-      "path": "ilmerge/3.0.41",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/ILMerge.props",
-        "docs/ilmerge-manual.md",
-        "ilmerge.3.0.41.nupkg.sha512",
-        "ilmerge.nuspec",
-        "tools/net452/ILMerge.exe",
-        "tools/net452/System.Compiler.dll"
-      ]
-    },
-    "ILRepack/2.0.30": {
-      "sha512": "QanDNA1Y+Qd6uH9OzgRl9vRZrgd8ee2MO93fO8B35Mo5mK4Q8WaZsgHUPq/umLTFimI3nNO6wwbPgjBB6sBwiQ==",
-      "type": "package",
-      "path": "ilrepack/2.0.30",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ILRepack.png",
-        "README.md",
-        "build/ILRepack.props",
-        "ilrepack.2.0.30.nupkg.sha512",
-        "ilrepack.nuspec",
-        "tools/ILRepack.exe",
-        "tools/ILRepack.runtimeconfig.json"
-      ]
-    },
     "Microsoft.NET.ILLink.Tasks/8.0.1": {
       "sha512": "ADdJXuKNjwZDfBmybMnpvwd5CK3gp92WkWqqeQhW4W+q4MO3Qaa9QyW2DcFLAvCDMcCWxT5hRXqGdv13oon7nA==",
       "type": "package",
@@ -130,9 +73,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
-      "ILRepack >= 2.0.30",
-      "Microsoft.NET.ILLink.Tasks >= 8.0.1",
-      "ilmerge >= 3.0.41"
+      "Microsoft.NET.ILLink.Tasks >= 8.0.1"
     ]
   },
   "packageFolders": {
@@ -180,21 +121,11 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
-          "ILRepack": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[2.0.30, )"
-          },
           "Microsoft.NET.ILLink.Tasks": {
             "suppressParent": "All",
             "target": "Package",
             "version": "[8.0.1, )",
             "autoReferenced": true
-          },
-          "ilmerge": {
-            "target": "Package",
-            "version": "[3.0.41, )"
           }
         },
         "imports": [
